@@ -11,6 +11,8 @@ const showDays = document.querySelector('.days');
 const showHours = document.querySelector('.hours');
 const showMinutes = document.querySelector('.minutes');
 const showSeconds = document.querySelector('.seconds');
+const eventItemTitle = document.querySelector('.event-item-title');
+const eventDescription = document.querySelector('.event-desc');
 let evenData;
 let currentIndex = 0;
 let months;
@@ -35,7 +37,6 @@ const checkValidate = () => {
     if ((titleValue.value && dateValue.value && timeValue.value) == '') {
     formHeading.textContent = 'Fill the gaps please';
     formHeading.style.color = 'red';
-    console.log(eventData)
     return false;
     }
     formHeading.textContent = 'Create new event';
@@ -112,31 +113,25 @@ const addEventItem = (id, title, date, month) => {
 
 const convertInterval = (id) => {
     setInterval(() => {
-        let currentDate = new Date();
-        let interval = new Date(eventData[id].date) - currentDate;
-        console.log(interval)
-        months = Math.floor(interval / (1000 * 60 * 60 * 24));
-        days = Math.floor(interval / (1000*60*60*24)) % 7
-        hours = Math.floor( interval /3600000);
+        let currentDate = new Date().getTime();
+        let customDate = new Date(new Date(eventData[id].date).getTime())
+        let interval = customDate - currentDate;
+        months = Math.floor((interval % (1000 * 60 * 60 * 24 * 30 * 12)) / (1000 * 60 * 60 *24 * 30))
+        days = Math.floor((interval % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 *24))
+        hours = Math.floor((interval % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
         seconds = Math.floor((interval % (1000 * 60)) / 1000);
-    
-        getItemInfo(days, hours, minutes, seconds, months);
+        getItemInfo(days, hours, minutes, seconds, months, id);
        }, 1000);
-    
-    
 }
-const getItemInfo = (days, hours, minutes, seconds,months) => {
+
+const getItemInfo = (days, hours, minutes, seconds,months, id) => {
     showMonths.textContent = months;
     showDays.textContent = days;
     showHours.textContent = hours;
     showMinutes.textContent = minutes;
     showSeconds.textContent = seconds;
+
+    eventItemTitle.textContent = eventData[id].title;
+    eventDescription.textContent = eventData[id].description;
 }
-    
-//   // If the count down is over, write some text 
-//   if (distance < 0) {
-//     clearInterval(x);
-//     document.getElementById("demo").innerHTML = "EXPIRED";
-//   }
-// }, 1000);
