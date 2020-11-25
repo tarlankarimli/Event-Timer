@@ -1,0 +1,76 @@
+.event-time-bg {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(66, 209, 235, 0.952);
+    
+    top: -100%;
+    
+    .event-item-time {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            width: 75rem;
+            min-height: 35rem;
+        .countdown-time {
+            background: rgb(115, 115, 187);
+            display: flex;
+            height: 18rem;
+            div {
+                width: 15rem;
+                height: 100%;
+                @include center;
+                border-right: 1px solid #000;
+                display: flex;
+                flex-direction: column;
+                span:first-child {
+                    font-size: 2rem;
+                    margin-bottom: 2rem;
+                }
+                font-size: 4rem;
+            }
+        }
+        .event-info {
+            @include center;
+            flex-direction: column;
+            text-align: center;
+            margin-top: 2rem;
+            .event-desc {
+                font-size: 2rem;
+            }
+        }
+        .months {
+            // background: red    
+        }
+        .days {
+            // background: yellow;
+        }
+        .hours {
+            // background: blue;
+        }
+        .minutes {
+            // background: green;
+        }
+        .seconds {
+            // background: white;
+        }
+    }
+    
+}
+.time-animation {
+    animation-name: showingTimer;
+    animation-duration: 1s;
+}
+
+@keyframes showingTimer {
+    //  0% {top:  -90%;}  
+    // 20% {top:  -80%;}
+    // 40% {top:  -70%;}
+    // 60% {top:  -60%;}
+    // 80% {top:  -50%;}
+    // 100%{top:  -40%;}
+    from {top: -100%;}
+    to {top: 0;}
+}

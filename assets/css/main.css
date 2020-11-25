@@ -1,0 +1,299 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root {
+  font-size: 10px;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.container {
+  height: 100vh;
+  background: lightblue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+* {
+  border-radius: 4px;
+}
+
+.event-time-bg {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(66, 209, 235, 0.952);
+  top: -100%;
+}
+
+.event-time-bg .event-item-time {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #fff;
+  width: 75rem;
+  min-height: 35rem;
+}
+
+.event-time-bg .event-item-time .countdown-time {
+  background: #7373bb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 18rem;
+}
+
+.event-time-bg .event-item-time .countdown-time div {
+  width: 15rem;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-right: 1px solid #000;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 4rem;
+}
+
+.event-time-bg .event-item-time .countdown-time div span:first-child {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.event-time-bg .event-item-time .event-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.event-time-bg .event-item-time .event-info .event-desc {
+  font-size: 2rem;
+}
+
+.time-animation {
+  -webkit-animation-name: showingTimer;
+          animation-name: showingTimer;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@-webkit-keyframes showingTimer {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@keyframes showingTimer {
+  from {
+    top: -100%;
+  }
+  to {
+    top: 0;
+  }
+}
+
+.events {
+  background: #5f3727;
+  height: 100%;
+  width: 60%;
+  overflow-y: scroll;
+}
+
+.events .event-item {
+  background: yellow;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 2rem auto;
+  width: 50rem;
+  min-height: 10rem;
+}
+
+.events .event-item:hover {
+  cursor: pointer;
+}
+
+.events .event-item .event-date {
+  background: chartreuse;
+  font-size: 5rem;
+  text-align: center;
+  width: 12rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.events .event-item .event-date .event-month {
+  color: #fff;
+  display: block;
+  font-size: 2.5rem;
+}
+
+.event-item-title {
+  margin: auto;
+  padding: 1rem;
+  font-size: 3rem;
+}
+
+.form-container {
+  background: lightsalmon;
+  height: 100%;
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-container .form {
+  background: #792727;
+  height: 60rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1rem;
+  width: 50rem;
+}
+
+.form-container .form h3 {
+  font-size: 3rem;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.form-container .form label {
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 1rem 0;
+}
+
+.form-container .form input {
+  height: 4rem;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+  border: none;
+  letter-spacing: 2px;
+}
+
+.form-container .form #description {
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.form-container .form .btn-add-event {
+  height: 4rem;
+  background: cornflowerblue;
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  outline: none;
+  margin-top: 2rem;
+}
+
+.form-container .form .btn-add-event:hover {
+  cursor: pointer;
+  background: #42619b;
+  -webkit-transition: .2s ease-in-out;
+  transition: .2s ease-in-out;
+}
+
+.form-container .form #time {
+  margin-left: 2rem;
+}

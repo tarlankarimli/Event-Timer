@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count down timing</title>
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"/>
+    <!-- custom css -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+    <!-- container -->
+    <div class="container">
+        <!-- events section -->
+        <div class="events">
+            <!-- <div class="event-item">
+                <div class="event-date">
+                    <div class="event-day">13 <span class="event-month">November</span></div>
+                </div>
+                <h2 class="event-item-title">Lorem ipsum dolor sit amet.</h2>
+            </div> -->
+        </div>
+        <!-- form - add new event -->
+        <div class="form-container">
+            <div class="form">
+                <h3 class="form-heading">Create new event</h3>
+                <label for="title">Title</label>
+                <input type="text" id="title" placeholder="Title">
+                <label for="description">Description</label>
+                <textarea rows="7" id="description" name="comment" form="usrform" placeholder="Description" ></textarea>
+                <label for="date">Choose date for event</label>
+                <div class="event-date">                    
+                    <input type="date" name="date" id="date">
+                    <input type="time" name="time" id="time">
+                </div>
+                <button type="submit" class="btn-add-event">Add event</button>
+            </div>
+        </div>
+        <!-- display countdown -->
+        <div class="event-time-bg ">
+            <div class="event-item-time">
+                <div class="countdown-time">
+                    <div>
+                        <span>Months</span>
+                        <span class="months"></span> 
+                    </div>
+                    <div>
+                        <span>Days</span>
+                        <span class="days"></span>
+                    </div>
+                    <div>
+                        <span>Hours</span>
+                        <span class="hours"></span>
+                    </div>
+                    <div>
+                        <span>Minutes</span>
+                        <span class="minutes"></span>
+                    </div>
+                    <div>
+                        <span>Seconds</span>
+                        <span class="seconds"></span>
+                    </div>
+                </div>
+                <!-- event info inside countdown -->
+                <div class="event-info">
+                    <h2 class="event-item-title">Lorem ipsum dolor sit amet.</h2>
+                    <p class="event-desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum corporis dolorem cumque tempore explicabo mollitia.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- custom js -->
+    <script src="./js/index.js"></script>
+</body>
+</html>

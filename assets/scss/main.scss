@@ -1,0 +1,23 @@
+@import './local';
+@import './config';
+@import './components';
+
+
+//         |- components/
+//         |   |- _containerSides.scss
+//         |   |- _events.scss
+//         |   |- _form.scss
+//         |
+//         |- config/
+//         |   |- _breakpoints.scss
+//         |   |- _colors.scss
+//         |   |- _common.scss
+//         |
+//         |- local/
+//         |   |- _mixins.scss        
+//         |   |- _resets.scss
+//         |
+//         |- _components.scss
+//         |- _config.scss
+//         |- _local.scss
+//         |- main.scss

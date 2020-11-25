@@ -1,0 +1,33 @@
+.events {
+    background: rgb(95, 55, 39);
+    height: 100%;
+    width: 60%;
+    overflow-y: scroll;
+    .event-item {
+        background: yellow;
+        display: flex;
+        margin: 2rem auto;
+        width: 50rem;
+        min-height: 10rem;  
+        &:hover {
+            cursor: pointer;
+        }      
+        .event-date {
+            background: chartreuse;
+            font-size: 5rem;
+            text-align: center;
+            width: 12rem;
+            @include center;
+            .event-month {
+                color: #fff;
+                display: block;
+                font-size: 2.5rem;
+            }
+        }        
+    }
+}
+.event-item-title {
+    margin: auto;
+    padding: 1rem;
+    font-size: 3rem;
+}
