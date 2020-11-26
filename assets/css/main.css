@@ -57,6 +57,19 @@ table {
   border-spacing: 0;
 }
 
+body {
+  position: relative;
+}
+
+body .remove-btn {
+  color: #fff;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 1;
+  cursor: pointer;
+}
+
 .container {
   height: 100vh;
   background: lightblue;
@@ -189,6 +202,10 @@ table {
 
 .events .event-item:hover {
   cursor: pointer;
+}
+
+.events .event-item .remove-btn {
+  width: 0;
 }
 
 .events .event-item .event-date {

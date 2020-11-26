@@ -1,3 +1,14 @@
+body {
+    position: relative;
+    .remove-btn {
+        color: #fff;
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        z-index: 1;
+        cursor: pointer;
+    }
+}
 .container {
     height: 100vh;
     background: lightblue;

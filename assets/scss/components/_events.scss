@@ -2,7 +2,7 @@
     background: rgb(95, 55, 39);
     height: 100%;
     width: 60%;
-    overflow-y: scroll;
+    overflow-y: scroll;    
     .event-item {
         background: yellow;
         display: flex;
@@ -11,7 +11,10 @@
         min-height: 10rem;  
         &:hover {
             cursor: pointer;
-        }      
+        }
+        .remove-btn {
+            width: 0;
+        }
         .event-date {
             background: chartreuse;
             font-size: 5rem;

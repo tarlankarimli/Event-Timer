@@ -1,3 +1,4 @@
+// variables
 const titleValue = document.querySelector('#title');
 const descValue = document.querySelector('#description');
 const dateValue = document.querySelector('#date');
@@ -13,6 +14,7 @@ const showMinutes = document.querySelector('.minutes');
 const showSeconds = document.querySelector('.seconds');
 const eventItemTitle = document.querySelector('.event-item-title');
 const eventDescription = document.querySelector('.event-desc');
+const removeItem = document.querySelector('.remove-btn');
 let evenData;
 let currentIndex = 0;
 let months;
@@ -22,14 +24,14 @@ let minutes;
 let seconds;
 const calendar = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 // check is data existed
-// localStorage.removeItem('eventStorage')
+//  localStorage.removeItem('eventStorage')
 window.onload = ()=> {
     if (localStorage.getItem('eventStorage') == null) {       
         eventData = [];
     } else {
         eventData = JSON.parse(localStorage.getItem('eventStorage'));
-        currentIndex = eventData.length
-        showEvents();
+        currentIndex = eventData.length      
+        showEvents();        
     }
 }
 //  check item is validate
@@ -42,7 +44,16 @@ const checkValidate = () => {
     formHeading.textContent = 'Create new event';
     formHeading.style.color = '#fff';    
 }
-
+// remove event item
+removeItem.addEventListener('dragover', (e)=>{e.preventDefault()})
+removeItem.addEventListener('drop', (e) => {
+    e.preventDefault();
+    let id = e.dataTransfer.getData("item");
+    eventData.splice(id, 1);
+    localStorage.setItem('eventStorage', JSON.stringify(eventData));
+    showEvents();
+})
+// add event
 eventBtn.addEventListener('click', ()=> {
     if(checkValidate()==false) {
         return
@@ -52,6 +63,7 @@ eventBtn.addEventListener('click', ()=> {
 })
 
 const addEvent = () => {
+    currentIndex = eventData.length
     let eventItem = {
         id: currentIndex,
         title: titleValue.value,
@@ -67,7 +79,7 @@ const addEvent = () => {
     dateValue.value = '';
     timeValue.value = '';
 }
-
+//  show all events
 const showEvents = () => {
     eventsList.textContent= '';
     eventData.map((data) => {
@@ -92,14 +104,18 @@ const addEventItem = (id, title, date, month) => {
     const eventItem = document.createElement('div');
     eventItem.setAttribute('class','event-item');
     eventItem.setAttribute('id', id);
+    eventItem.setAttribute('draggable', true);
+
+    eventItem.addEventListener('dragstart', (e)=>(e.dataTransfer.setData("item", e.target.id)));
 
     eventItem.addEventListener('click', ()=> {
         countDown.className = 'event-time-bg time-animation';
-        countDown.style.top = 0;
-        convertInterval(id);
-
+        countDown.style.top = 0;        
+            setInterval(() => {
+            convertInterval(id);
+           }, 1000);
     })
-
+    
     eventMonth.textContent = month;
     eventDay.textContent = date;
     eventItemTitle.textContent = title;
@@ -111,20 +127,21 @@ const addEventItem = (id, title, date, month) => {
     eventsList.appendChild(eventItem);    
 }
 
+// calculate interval between given and current date
 const convertInterval = (id) => {
-    setInterval(() => {
-        let currentDate = new Date().getTime();
-        let customDate = new Date(new Date(eventData[id].date).getTime())
-        let interval = customDate - currentDate;
-        months = Math.floor((interval % (1000 * 60 * 60 * 24 * 30 * 12)) / (1000 * 60 * 60 *24 * 30))
-        days = Math.floor((interval % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 *24))
-        hours = Math.floor((interval % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
-        seconds = Math.floor((interval % (1000 * 60)) / 1000);
-        getItemInfo(days, hours, minutes, seconds, months, id);
-       }, 1000);
-}
+    let currentDate = new Date().getTime();
+    let customDate = new Date(new Date(eventData[id].date).getTime())
+    let interval = customDate - currentDate;
+    
+    months = Math.floor((interval % (1000 * 60 * 60 * 24 * 30 * 12)) / (1000 * 60 * 60 *24 * 30))
+    days = Math.floor((interval % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 *24))
+    hours = Math.floor((interval % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    minutes = Math.floor((interval % (1000 * 60 * 60)) / (1000 * 60));
+    seconds = Math.floor((interval % (1000 * 60)) / 1000);
 
+    getItemInfo(days, hours, minutes, seconds, months, id);
+}
+// writing countdown and item info to display countdown section
 const getItemInfo = (days, hours, minutes, seconds,months, id) => {
     showMonths.textContent = months;
     showDays.textContent = days;
@@ -133,5 +150,6 @@ const getItemInfo = (days, hours, minutes, seconds,months, id) => {
     showSeconds.textContent = seconds;
 
     eventItemTitle.textContent = eventData[id].title;
-    eventDescription.textContent = eventData[id].description;
+    eventDescription.textContent = eventData[id].description;    
 }
+
