@@ -1,50 +1,30 @@
 .form-container {
-    background: lightsalmon;
+    background: $midnight-blue;
     height: 100%;
     width: 40%;
     @include center;
 
     .form {
-        background: rgb(121, 39, 39);
+        background:$silver-grey-dark;
         height: 60rem;
-        display: flex;
         flex-direction: column;
-        justify-content: center;
         padding: 1rem;
+        @include center ($align-items: initial);
         width: 50rem;
-        h3 {
-            font-size: 3rem;
-            text-align: center;
-            color: #fff;
-            margin-bottom: 2rem;
-        }
-        label {
-            font-size: 2.5rem;
-            color: #fff;
-            margin: 1rem 0;
-        }
         input {
             height: 4rem;
             margin-bottom: 2rem;
-            padding: 0 1rem;
             border: none;
-            letter-spacing: 2px;
-        }
-        #description {
-            margin-bottom: 2rem;
-            padding: 1rem;
         }
         .btn-add-event {
             height: 4rem;
-            background: cornflowerblue;
-            color: #fff;
+            background: $silver-grey-light;
             border: none;
-            font-size: 2rem;
             outline: none;
             margin-top: 2rem;
             &:hover {
                 cursor: pointer;
-                background: rgb(66, 97, 155);
+                background: $primary;
                 transition: .2s ease-in-out;
             }
         }

@@ -1,0 +1,63 @@
+// form section
+.form {
+    h3 {
+        font-size: 3rem;
+        text-align: center;
+        color: $white;
+        margin-bottom: 2rem;
+    }
+    label {
+        font-size: 2.5rem;
+        color: $white;
+        margin: 1rem 0;
+    }
+    input {
+        padding: 0 1rem;
+        letter-spacing: .2rem;
+    }
+    #description {
+        margin-bottom: 2rem;
+        padding: 1rem;
+    }
+    .btn-add-event {
+        color: $white;
+        font-size: 2rem;
+    }
+}
+
+//  events section
+.event-date {
+    font-size: 5rem;
+    text-align: center;
+    color: $white;
+
+    .event-month {
+        color: $white;
+        font-size: 2.5rem;
+    }
+} 
+.event-item-title {
+    padding: 1rem;
+    font-size: 3rem;
+    color: $midnight-blue-light;
+}
+
+// event timing section
+.event-item-time {
+        div {
+            color: $white;              
+            span:first-child {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            font-size: 4rem;
+        }
+    .event-info {
+        text-align: center;
+        margin-top: 2rem;
+        color: $midnight-blue-light;
+        .event-desc {
+            font-size: 2rem;
+        }
+    }
+}

@@ -1,20 +1,29 @@
 body {
     position: relative;
     .remove-btn {
-        color: #fff;
+        color: $white;
         position: absolute;
         bottom: 1rem;
         left: 1rem;
         z-index: 1;
         cursor: pointer;
     }
+    .menu-bar {
+        position: absolute;
+        right: 3rem;
+        top: 1rem;
+        color: $white;
+        z-index: 1;
+        display: none;
+        cursor: pointer;
+    }
 }
 .container {
     height: 100vh;
-    background: lightblue;
+    width: 100%;
     display: flex;
     position: relative;
 }
 * {
-    border-radius: 4px;
+    border-radius: .4rem;
 }

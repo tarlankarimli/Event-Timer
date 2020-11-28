@@ -1,10 +1,11 @@
 .events {
-    background: rgb(95, 55, 39);
+    background: $oregon;
     height: 100%;
     width: 60%;
-    overflow-y: scroll;    
+    overflow-y: scroll;
+    
     .event-item {
-        background: yellow;
+        background: $white;
         display: flex;
         margin: 2rem auto;
         width: 50rem;
@@ -12,25 +13,13 @@
         &:hover {
             cursor: pointer;
         }
-        .remove-btn {
-            width: 0;
-        }
         .event-date {
-            background: chartreuse;
-            font-size: 5rem;
-            text-align: center;
+            background: $midnight-blue-light;
             width: 12rem;
             @include center;
-            .event-month {
-                color: #fff;
-                display: block;
-                font-size: 2.5rem;
-            }
-        }        
+        }
+        .event-item-title {
+            margin: auto;
+        }       
     }
-}
-.event-item-title {
-    margin: auto;
-    padding: 1rem;
-    font-size: 3rem;
 }

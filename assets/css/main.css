@@ -57,6 +57,20 @@ table {
   border-spacing: 0;
 }
 
+@media (max-width: 1024px) {
+  .events {
+    width: 100% !important;
+  }
+  .form-container {
+    position: absolute;
+    width: 100% !important;
+    height: 100% !important;
+  }
+  .menu-bar {
+    display: block !important;
+  }
+}
+
 body {
   position: relative;
 }
@@ -70,9 +84,19 @@ body .remove-btn {
   cursor: pointer;
 }
 
+body .menu-bar {
+  position: absolute;
+  right: 3rem;
+  top: 1rem;
+  color: #fff;
+  z-index: 1;
+  display: none;
+  cursor: pointer;
+}
+
 .container {
   height: 100vh;
-  background: lightblue;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -80,14 +104,79 @@ body .remove-btn {
 }
 
 * {
-  border-radius: 4px;
+  border-radius: .4rem;
+}
+
+.form h3 {
+  font-size: 3rem;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.form label {
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 1rem 0;
+}
+
+.form input {
+  padding: 0 1rem;
+  letter-spacing: .2rem;
+}
+
+.form #description {
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+
+.form .btn-add-event {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.event-date {
+  font-size: 5rem;
+  text-align: center;
+  color: #fff;
+}
+
+.event-date .event-month {
+  color: #fff;
+  font-size: 2.5rem;
+}
+
+.event-item-title {
+  padding: 1rem;
+  font-size: 3rem;
+  color: #003366c5;
+}
+
+.event-item-time div {
+  color: #fff;
+  font-size: 4rem;
+}
+
+.event-item-time div span:first-child {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.event-item-time .event-info {
+  text-align: center;
+  margin-top: 2rem;
+  color: #003366c5;
+}
+
+.event-item-time .event-info .event-desc {
+  font-size: 2rem;
 }
 
 .event-time-bg {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background: rgba(66, 209, 235, 0.952);
+  background: #003366c5;
   top: -100%;
 }
 
@@ -103,7 +192,7 @@ body .remove-btn {
 }
 
 .event-time-bg .event-item-time .countdown-time {
-  background: #7373bb;
+  background: #993300c5;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -122,18 +211,12 @@ body .remove-btn {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border-right: 1px solid #000;
+  border-right: 0.1rem solid #fff;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  font-size: 4rem;
-}
-
-.event-time-bg .event-item-time .countdown-time div span:first-child {
-  font-size: 2rem;
-  margin-bottom: 2rem;
 }
 
 .event-time-bg .event-item-time .event-info {
@@ -150,15 +233,9 @@ body .remove-btn {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  text-align: center;
-  margin-top: 2rem;
 }
 
-.event-time-bg .event-item-time .event-info .event-desc {
-  font-size: 2rem;
-}
-
-.time-animation {
+.show-timer {
   -webkit-animation-name: showingTimer;
           animation-name: showingTimer;
   -webkit-animation-duration: 1s;
@@ -184,14 +261,14 @@ body .remove-btn {
 }
 
 .events {
-  background: #5f3727;
+  background: #993300;
   height: 100%;
   width: 60%;
   overflow-y: scroll;
 }
 
 .events .event-item {
-  background: yellow;
+  background: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -204,14 +281,8 @@ body .remove-btn {
   cursor: pointer;
 }
 
-.events .event-item .remove-btn {
-  width: 0;
-}
-
 .events .event-item .event-date {
-  background: chartreuse;
-  font-size: 5rem;
-  text-align: center;
+  background: #003366c5;
   width: 12rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -224,20 +295,12 @@ body .remove-btn {
           align-items: center;
 }
 
-.events .event-item .event-date .event-month {
-  color: #fff;
-  display: block;
-  font-size: 2.5rem;
-}
-
-.event-item-title {
+.events .event-item .event-item-title {
   margin: auto;
-  padding: 1rem;
-  font-size: 3rem;
 }
 
 .form-container {
-  background: lightsalmon;
+  background: #003366;
   height: 100%;
   width: 40%;
   display: -webkit-box;
@@ -252,54 +315,35 @@ body .remove-btn {
 }
 
 .form-container .form {
-  background: #792727;
+  background: #cccccc0e;
   height: 60rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 1rem;
+  -webkit-box-align: initial;
+      -ms-flex-align: initial;
+          align-items: initial;
   width: 50rem;
-}
-
-.form-container .form h3 {
-  font-size: 3rem;
-  text-align: center;
-  color: #fff;
-  margin-bottom: 2rem;
-}
-
-.form-container .form label {
-  font-size: 2.5rem;
-  color: #fff;
-  margin: 1rem 0;
 }
 
 .form-container .form input {
   height: 4rem;
   margin-bottom: 2rem;
-  padding: 0 1rem;
   border: none;
-  letter-spacing: 2px;
-}
-
-.form-container .form #description {
-  margin-bottom: 2rem;
-  padding: 1rem;
 }
 
 .form-container .form .btn-add-event {
   height: 4rem;
-  background: cornflowerblue;
-  color: #fff;
+  background: #cccccc65;
   border: none;
-  font-size: 2rem;
   outline: none;
   margin-top: 2rem;
 }
